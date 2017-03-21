@@ -1,0 +1,27 @@
+location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ { 
+    access_log   off; 
+    expires      30d;
+}
+location ~* ^.+\.(css|js|txt|xml|swf|wav)$ {
+    access_log   off;
+    expires      24h;
+}
+location ~* ^.+\.(html|htm)$ {
+    expires      1h;
+}
+
+location ~* ^.+\.(eot|ttf|otf|woff|svg)$ {
+    access_log   off;
+    expires max;
+}
+
+location ~ /.well-known {
+    allow all;
+}        
+
+
+location /go/ {
+    rewrite                         ^/go/aliyun "https://s.click.taobao.com/t?e=m%3D2%26s%3DQWxWQk6jRu8cQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAgKryFV9htm6vI5DWFYHmxWkE4L1JHEqowFtU2GAvyCBe3RtbhpkwFHMEBQpjBc%2BMDDVuRn8ddiDsEVVC24eqozO54LQ%2FVw1L9X5LHh3Z8M%2BWS6ALZVeqlk9XUfbPSJC%2F06deTzTIbffYpyF7ku%2BxKguktBpDNMjUkKEtlQK%2BrdARZujRnIpwuLGJe8N%2FwNpGw%3D%3D";
+    rewrite                         ^/go/qiniu "https://portal.qiniu.com/signup?code=3lqtwli7mylaq";
+    break;
+}
