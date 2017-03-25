@@ -1,1 +1,13 @@
+#CORS(Cross Orign Resource-Sharing)跨域控制配置
+
+#是否允许请求带有验证信息
+add_header Access-Control-Allow-Credentials true;
+
+#允许跨域访问的域名,可以是一个域的列表，也可以是通配符*
 add_header Access-Control-Allow-Origin *;
+
+#允许脚本访问的返回头
+add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';
+
+#允许使用的请求方法，以逗号隔开
+add_header Access-Control-Allow-Methods 'POST,GET,OPTIONS,PUT,DELETE';

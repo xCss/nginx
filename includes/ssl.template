@@ -3,6 +3,12 @@
         
     more_clear_headers        'X-DNS-Prefetch-Control';
     add_header                X-DNS-Prefetch-Control on;
+    # 隐藏不必要的信息
+    server_tokens   off;
+
+    add_header X-Frame-Options SAMEORIGIN; # DENY:不允许frame;SAMEORIGIN:允许在同域的frmae中展示;ALLOW-FROM uri:指定来源的frame
+    add_header X-Content-Type-Options nosniff;
+    add_header X-XSS-Protection "1; mode=block"; 
 
     ssl_dhparam /etc/nginx/keys/dhparams.pem;
 
@@ -15,5 +21,6 @@
     ssl_prefer_server_ciphers on;
     ssl_stapling on;
     ssl_stapling_verify on;
+    
     resolver                223.5.5.5 223.6.6.6 [2001:4860:4860::8888]:5353 [2001:4860:4860::8844]:5353 valid=3600s;
     resolver_timeout        5s;

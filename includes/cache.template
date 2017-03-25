@@ -1,17 +1,21 @@
 location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ { 
     access_log   off; 
+    etag         on;
     expires      30d;
 }
 location ~* ^.+\.(css|js|txt|xml|swf|wav)$ {
     access_log   off;
+    etag         on;
     expires      24h;
 }
 location ~* ^.+\.(html|htm)$ {
+    etag         on;
     expires      1h;
 }
 
 location ~* ^.+\.(eot|ttf|otf|woff|svg)$ {
     access_log   off;
+    etag         on;
     expires max;
 }
 
